@@ -1,34 +1,25 @@
-import { Heading, Page } from "@shopify/polaris"
-import { ResourcePicker } from "@shopify/app-bridge-react"
-class Index extends React.Component {
-  state = {
-    open: false
-  }
-  render() {
-    return (
-      <Page
-        title='Product Selector'
-        primaryAction={{
-          content: 'Select Products',
-          onAction: () => this.setState({open: true})
-        }}
-      >
-        <ResourcePicker
-          resourceType="Product"
-          open={this.state.open}
-          onCancel={() => this.setState({ open:false})}
-          onSelection={(resources) => this.handleSelection(resources)}
-        />
-      </Page>
-    )
-  }
+import { Page, Button } from "@shopify/polaris";
+import { Context } from "@shopify/app-bridge-react";
+import { Redirect } from "@shopify/app-bridge/actions";
+import ResourceListWithProducts from "../components/ResourceList";
 
-  handleSelection(resources) {
-    this.setState({
-      open: false
-    });
-    console.log(resources);
-  }
+class Products extends React.Component {
+	static contextType = Context;
+	handleCreate = () => {
+		const app = this.context;
+		const redirect = Redirect.create(app);
+		redirect.dispatch(Redirect.Action.APP, "/create-product");
+	};
+	render() {
+		return (
+			<Page>
+				<ResourceListWithProducts />
+				<div className="right-align">
+					<Button onClick={this.handleCreate}>Create Product</Button>
+				</div>
+			</Page>
+		);
+	}
 }
 
-export default Index;
+export default Products;

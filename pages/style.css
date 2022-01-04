@@ -1,0 +1,28 @@
+.Polaris-Custom {
+	font-size: 1.2em;
+	margin-bottom: 10px;
+	font-weight: 700;
+	position: relative;
+}
+.Polaris-Custom .Polaris-ButtonGroup {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+#AppFrameMain {
+	padding-top: 4rem;
+	padding-bottom: 6rem;
+}
+#btn-cancel {
+	margin-right: 10px;
+}
+.right-align {
+	text-align: right;
+	padding: 2rem 0px;
+}
+.description-field {
+	margin-top: 20px;
+}
+.description-field textarea {
+	min-height: 108px;
+}
