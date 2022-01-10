@@ -24,7 +24,7 @@ function createUrl(shop, endpoint) {
 	 * NOTE: This should reflect your app's ngrok URL (if running locally)
 	 * or the url of your production app (if pushing/publishing the extension)
 	 */
-	const embeddedAppHost = 'https://your-app-host.com';
+	const embeddedAppHost = 'https://ea1b-137-220-71-42.ngrok.io';
 	return `${embeddedAppHost}/${endpoint}?shop=${shop}`;
 }
 
